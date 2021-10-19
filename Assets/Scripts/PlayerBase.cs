@@ -22,16 +22,15 @@ public class PlayerBase : MonoBehaviour
         closeButton = canvas.GetComponentInChildren<Button>();
         invokeTimer = canvas.GetComponentInChildren<Text>();
         invokeButton.onClick.AddListener(() => canInvoke = true);
-        slider.onValueChanged.AddListener((Call));
+        slider.onValueChanged.AddListener((OnValueChanged));
     }
 
-    private void Call(float arg0)
+    private void OnValueChanged(float arg0)
     {
         if (arg0 > 0)
             invokeButton.interactable = true;
         else
             invokeButton.interactable = false;
-
     }
 
     // Update is called once per frame
@@ -57,18 +56,10 @@ public class PlayerBase : MonoBehaviour
     }
 
 
-    public void Enable(bool b)
-    {
-        enabled = b;
-    }
 
     private void Spawn()
     {
         warrior.transform.position = transform.position;
         Instantiate(warrior);
-    }
-    public void OpenMenu()
-    {
-
     }
 }

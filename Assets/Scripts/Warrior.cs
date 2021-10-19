@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class Warrior : MonoBehaviour
 {
     [SerializeField] private Animator weaponAnimator;
+    [SerializeField] private ParticleSystem deathParticle;
     private GameObject target;
     protected int health;
     private float viewDistance = 3.0f;
@@ -72,6 +73,8 @@ public class Warrior : MonoBehaviour
 
     private void Death()
     {
+        deathParticle.transform.position = transform.position;
+        Instantiate(deathParticle);
         Destroy(gameObject);
     }
 }

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private LayerMask rayLayer;
     [SerializeField] private Canvas canvas;
     private Camera mainCamera;
     private List<PlayerWarrior> selectedWarriors;
@@ -24,7 +23,7 @@ public class PlayerController : MonoBehaviour
         {
             float timeBetweenClick = Time.time - lastClickTime;
             Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out var hit, 50))
+            if (Physics.Raycast(ray, out var hit, 100))
             {
                 if (hit.collider && hit.collider.CompareTag("PlayerBase"))
                 {
